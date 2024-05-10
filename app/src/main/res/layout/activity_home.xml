@@ -25,7 +25,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="16dp"
-                android:text="Welcome Back"
+                android:text="Welcome to Task Master"
+                android:textColor="#FFFF00"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -36,7 +37,8 @@
                 android:layout_below="@id/welcomeTxt"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="4dp"
-                android:text="Today's Task"
+                android:text="Tasks Status Board"
+                android:textColor="#FFFF00"
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
@@ -62,7 +64,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/ic_view_list"
-                    app:tint="@color/black" />
+                    app:tint="#00FF00" />
             </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -70,6 +72,7 @@
                 style="@style/SearchInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:layout_below="@id/todayTxt"
                 android:layout_centerHorizontal="true"
                 android:layout_marginHorizontal="10dp"
@@ -82,8 +85,9 @@
                     android:id="@+id/edSearch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:background="@drawable/rounded_background"
                     android:hint="Enter search title"
+                    android:textColor="@color/black"
                     android:imeOptions="actionSearch"
                     android:inputType="text" />
 

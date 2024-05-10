@@ -4,7 +4,7 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
 
-        <item name="fontFamily">@font/ubuntu_mono_regular</item>
+        <item name="fontFamily">@font/poetsen_one_regular</item>
         <item name="android:statusBarColor">@color/black</item>
 
     </style>
@@ -12,14 +12,14 @@
     <style name="Theme.TaskMaster." parent="Base.Theme.TaskMaster" />
 
     <style name="CardViewStyle" parent="Widget.Material3.CardView.Filled">
-        <item name="shapeAppearanceOverlay">@style/CutShape</item>
+        <item name="shapeAppearanceOverlay">@style/RoundedShape</item>
     </style>
-    <style name="CutShape" parent="ShapeAppearance.Material3.MediumComponent">
-        <item name="cornerFamily">cut</item>
-        <item name="cornerSize">12dp</item>
+    <style name="RoundedShape" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
     </style>
     <style name="Widget.App.TextInputLayout" parent="Widget.Material3.TextInputLayout.FilledBox">
-        <item name="shapeAppearance">@style/CutShape</item>
+        <item name="shapeAppearance">@style/RoundedShape</item>
         <item name="hintTextColor">@color/black</item>
         <item name="boxStrokeColor">@color/black</item>
         <item name="endIconMode">clear_text</item>
@@ -38,7 +38,7 @@
         <item name="startIconTint">@color/black</item>
     </style>
     <style name="Widget.App.Button.Fill" parent="Widget.Material3.Button">
-        <item name="shapeAppearance">@style/CutShape</item>
+        <item name="shapeAppearance">@style/RoundedShape</item>
     </style>
 
     <style name="DialogCustomTheme" parent="Theme.Material3.DayNight.Dialog">
