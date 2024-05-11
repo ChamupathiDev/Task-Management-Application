@@ -11,9 +11,7 @@
 
     <style name="Theme.TaskMaster." parent="Base.Theme.TaskMaster" />
 
-    <style name="CardViewStyle" parent="Widget.Material3.CardView.Filled">
-        <item name="shapeAppearanceOverlay">@style/RoundedShape</item>
-    </style>
+
     <style name="RoundedShape" parent="ShapeAppearance.Material3.MediumComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">24dp</item>
