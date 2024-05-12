@@ -3,7 +3,7 @@ package com.example.taskmaster.converters
 import androidx.room.TypeConverter
 import java.util.Date
 
-class TypeConverter {
+class PickConv {
 
     @TypeConverter
     fun fromTimestamp(value:Long): Date {

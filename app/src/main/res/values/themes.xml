@@ -39,9 +39,11 @@
         <item name="shapeAppearance">@style/RoundedShape</item>
     </style>
 
-    <style name="DialogCustomTheme" parent="Theme.Material3.DayNight.Dialog">
-        <item name="android:windowBackground">@android:color/transparent</item>
+    <style name="DialogCustomTheme" parent="ThemeOverlay.MaterialComponents.Dialog">
+        <item name="android:windowBackground">@color/dash</item>
+        <item name="android:background">@drawable/dialog_background</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="shapeAppearance">@style/RoundedShape</item>
     </style>
 
     <style name="Theme.TaskMaster" parent="Base.Theme.TaskMaster" />

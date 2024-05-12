@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- dialog_background.xml -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-
-    <corners android:radius="40dp"/> <!-- Adjust corner radius as needed -->
-
-
-
     <gradient
         android:startColor="#93a5cf "
         android:endColor="#e4efe9"
         android:type="linear"
         android:angle="45"/>
-    <stroke
-        android:width="6dp"
-        android:color="#00008B"/>
-
-
 </shape>
+

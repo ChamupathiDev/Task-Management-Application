@@ -6,29 +6,29 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
-import com.example.taskmaster.converters.TypeConverter
-import com.example.taskmaster.dao.TaskDao
-import com.example.taskmaster.models.Task
+import com.example.taskmaster.converters.PickConv
+import com.example.taskmaster.dao.PickDao
+import com.example.taskmaster.models.Pick
 
 @Database(
-    entities = [Task::class],
+    entities = [Pick::class],
     version = 1,
     exportSchema = false
 )
-@TypeConverters(TypeConverter::class)
-abstract class TaskDatabase : RoomDatabase() {
+@TypeConverters(PickConv::class)
+abstract class PickDB : RoomDatabase() {
 
-    abstract val taskDao : TaskDao
+    abstract val pickDao : PickDao
 
     companion object {
         @Volatile
-        private var INSTANCE: TaskDatabase? = null
-        fun getInstance(context: Context): TaskDatabase {
+        private var INSTANCE: PickDB? = null
+        fun getInstance(context: Context): PickDB {
             synchronized(this) {
                 return INSTANCE ?: Room.databaseBuilder(
                     context.applicationContext,
-                    TaskDatabase::class.java,
-                    "task_db"
+                    PickDB::class.java,
+                    "pick_db"
                 ).build().also {
                     INSTANCE = it
                 }

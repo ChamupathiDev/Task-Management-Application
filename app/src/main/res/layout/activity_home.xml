@@ -9,7 +9,7 @@
 
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
+        android:id="@+id/nSview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -20,7 +20,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/welcomeTxt"
+                android:id="@+id/welT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -31,10 +31,10 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/todayTxt"
+                android:id="@+id/tTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/welcomeTxt"
+                android:layout_below="@id/welT"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="4dp"
                 android:text="Tasks Status Board"
@@ -54,13 +54,13 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/sortImg"
+                    android:id="@+id/sImg"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/ic_sort" />
 
                 <ImageView
-                    android:id="@+id/listOrGridImg"
+                    android:id="@+id/lGImg"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/ic_view_list"
@@ -73,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_below="@id/todayTxt"
+                android:layout_below="@id/tTxt"
                 android:layout_centerHorizontal="true"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="8dp"
@@ -82,7 +82,7 @@
                 app:startIconDrawable="@drawable/ic_search">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edSearch"
+                    android:id="@+id/se"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_background"
@@ -94,7 +94,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/taskRV"
+                android:id="@+id/tRv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/edSearchL"
@@ -111,7 +111,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/addTaskFABtn"
+        android:id="@+id/aTB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"

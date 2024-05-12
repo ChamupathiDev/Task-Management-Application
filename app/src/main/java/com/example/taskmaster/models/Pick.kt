@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import java.util.Date
 
 @Entity()
-data class Task(
+data class Pick(
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "taskId")
     val id: String,
