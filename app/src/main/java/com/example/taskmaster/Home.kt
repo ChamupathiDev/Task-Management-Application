@@ -49,7 +49,7 @@ class Home : AppCompatActivity() {
         }
     }
 
-    private val updatedTask: Dialog by lazy {
+    private val updatedPick: Dialog by lazy {
         Dialog(this, R.style.DialogCustomTheme).apply {
             setupDialog(R.layout.update_task)
         }
@@ -121,15 +121,15 @@ class Home : AppCompatActivity() {
                 )
                 hideKeyBoard(it)
                 addTask.dismiss()
-                pickView.insertTask(newtask)
+                pickView.insertPick(newtask)
             }
         }
         // Add task end
 
 
         // Update Pick Start
-        val updatetitle = updatedTask.findViewById<TextInputEditText>(R.id.tT)
-        val updatetitlev = updatedTask.findViewById<TextInputLayout>(R.id.tTv)
+        val updatetitle = updatedPick.findViewById<TextInputEditText>(R.id.tT)
+        val updatetitlev = updatedPick.findViewById<TextInputLayout>(R.id.tTv)
 
         updatetitle.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
@@ -140,8 +140,8 @@ class Home : AppCompatActivity() {
 
         })
 
-        val updatedes = updatedTask.findViewById<TextInputEditText>(R.id.tDes)
-        val updatedesv = updatedTask.findViewById<TextInputLayout>(R.id.tDesv)
+        val updatedes = updatedPick.findViewById<TextInputEditText>(R.id.tDes)
+        val updatedesv = updatedPick.findViewById<TextInputLayout>(R.id.tDesv)
 
         updatedes.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
@@ -151,24 +151,24 @@ class Home : AppCompatActivity() {
             }
         })
 
-        val updateImg = updatedTask.findViewById<ImageView>(R.id.cImg)
-        updateImg.setOnClickListener { updatedTask.dismiss() }
+        val updateImg = updatedPick.findViewById<ImageView>(R.id.cImg)
+        updateImg.setOnClickListener { updatedPick.dismiss() }
 
-        val updateTaskButton = updatedTask.findViewById<Button>(R.id.uTB)
+        val updatePickButton = updatedPick.findViewById<Button>(R.id.uTB)
 
         // Update Pick End
 
         isListMLData.observe(this){
             if (it){
-                homeBinding.tRv.layoutManager = LinearLayoutManager(
+                homeBinding.tq.layoutManager = LinearLayoutManager(
                     this,LinearLayoutManager.VERTICAL,false
                 )
-                homeBinding.lGImg.setImageResource(R.drawable.ic_view_module)
+                homeBinding.lGImg.setImageResource(R.drawable.view_module1)
             }else{
-                homeBinding.tRv.layoutManager = StaggeredGridLayoutManager(
+                homeBinding.tq.layoutManager = StaggeredGridLayoutManager(
                     2,LinearLayoutManager.VERTICAL
                 ) 
-                homeBinding.lGImg.setImageResource(R.drawable.ic_view_list)
+                homeBinding.lGImg.setImageResource(R.drawable.view_list1)
             }
         }
 
@@ -176,50 +176,50 @@ class Home : AppCompatActivity() {
             isListMLData.postValue(!isListMLData.value!!)
         }
 
-        val pickLAd = PickLAd(isListMLData ) { type, position, task ->
+        val pickLAd = PickLAd(isListMLData ) { type, position, pick ->
             if (type == "delete") {
                 pickView
                     // Deleted Pick
-//                .deleteTask(task)
-                    .deleteTaskUsingId(task.id)
+//                .deletePick(task)
+                    .deletePickUsingId(pick.id)
 
                 // Restore Deleted task
-                rdTask(task)
+                rdTask(pick)
             } else if (type == "update") {
-                updatetitle.setText(task.title)
-                updatedes.setText(task.description)
-                updateTaskButton.setOnClickListener {
+                updatetitle.setText(pick.title)
+                updatedes.setText(pick.description)
+                updatePickButton.setOnClickListener {
                     if (validateEditText(updatetitle, updatetitlev)
                         && validateEditText(updatedes, updatedesv)
                     ) {
                         val updatePick = Pick(
-                            task.id,
+                            pick.id,
                             updatetitle.text.toString().trim(),
                             updatedes.text.toString().trim(),
 //                           here i Date updated
                             Date()
                         )
                         hideKeyBoard(it)
-                        updatedTask.dismiss()
+                        updatedPick.dismiss()
                         pickView
-                            .updateTask(updatePick)
-//                            .updateTaskPaticularField(
+                            .updatePick(updatePick)
+//                            .updatePickPaticularField(
 //                                task.id,
 //                                updateETTitle.text.toString().trim(),
 //                                updateETDesc.text.toString().trim()
 //                            )
                     }
                 }
-                updatedTask.show()
+                updatedPick.show()
             }
         }
-        homeBinding.tRv.adapter = pickLAd
-        ViewCompat.setNestedScrollingEnabled(homeBinding.tRv,false)
+        homeBinding.tq.adapter = pickLAd
+        ViewCompat.setNestedScrollingEnabled(homeBinding.tq,false)
         pickLAd.registerAdapterDataObserver(object :
             RecyclerView.AdapterDataObserver() {
             override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
                 super.onItemRangeInserted(positionStart, itemCount)
-//                homeBinding.tRv.smoothScrollToPosition(positionStart)
+//                homeBinding.tq.smoothScrollToPosition(positionStart)
                 homeBinding.nSview.smoothScrollTo(0,positionStart)
             }
         })
@@ -237,7 +237,7 @@ class Home : AppCompatActivity() {
             Snackbar.LENGTH_LONG
         )
         sBar.setAction("Undo"){
-            pickView.insertTask(deletedPick)
+            pickView.insertPick(deletedPick)
         }
         sBar.show()
     }
@@ -250,7 +250,7 @@ class Home : AppCompatActivity() {
 
             override fun afterTextChanged(query: Editable) {
                 if (query.toString().isNotEmpty()){
-                    pickView.searchTaskList(query.toString())
+                    pickView.searchPickList(query.toString())
                 }else{
                     cSLiveData()
                 }
@@ -269,7 +269,7 @@ class Home : AppCompatActivity() {
     }
     private fun cSLiveData(){
         pickView.sBLData.observe(this){
-            pickView.getTaskList(it.second,it.first)
+            pickView.getPickList(it.second,it.first)
         }
     }
 

@@ -17,30 +17,30 @@ class PickView(application: Application) : AndroidViewModel(application) {
         pickRepo.setSortBy(sort)
     }
 
-    fun getTaskList(isAsc : Boolean, sortByName:String) {
-        pickRepo.getTaskList(isAsc, sortByName)
+    fun getPickList(isAsc : Boolean, sortByName:String) {
+        pickRepo.getPickList(isAsc, sortByName)
     }
 
-    fun insertTask(pick: Pick){
-        pickRepo.insertTask(pick)
+    fun insertPick(pick: Pick){
+        pickRepo.insertPick(pick)
     }
 
-    fun deleteTask(pick: Pick) {
-        pickRepo.deleteTask(pick)
+    fun deletePick(pick: Pick) {
+        pickRepo.deletePick(pick)
     }
 
-    fun deleteTaskUsingId(taskId: String){
-        pickRepo.deleteTaskUsingId(taskId)
+    fun deletePickUsingId(taskId: String){
+        pickRepo.deletePickUsingId(taskId)
     }
 
-    fun updateTask(pick: Pick) {
-        pickRepo.updateTask(pick)
+    fun updatePick(pick: Pick) {
+        pickRepo.updatePick(pick)
     }
 
-    fun updateTaskPaticularField(taskId: String,title:String,description:String) {
-        pickRepo.updateTaskPaticularField(taskId, title, description)
+    fun updatePickPaticularField(taskId: String,title:String,description:String) {
+        pickRepo.updatePickPaticularField(taskId, title, description)
     }
-    fun searchTaskList(query: String){
-        pickRepo.searchTaskList(query)
+    fun searchPickList(query: String){
+        pickRepo.searchPickList(query)
     }
 }

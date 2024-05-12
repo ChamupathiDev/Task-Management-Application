@@ -23,8 +23,8 @@ enum class StatusResult{
 
 fun Context.hideKeyBoard(view : View){
     try {
-        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(view.windowToken,0)
+        val iq = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        iq.hideSoftInputFromWindow(view.windowToken,0)
     }catch (e: Exception){
         e.printStackTrace()
     }

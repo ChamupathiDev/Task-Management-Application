@@ -57,13 +57,13 @@
                     android:id="@+id/sImg"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/ic_sort" />
+                    android:src="@drawable/sort1" />
 
                 <ImageView
                     android:id="@+id/lGImg"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/ic_view_list"
+                    android:src="@drawable/view_list1"
                     app:tint="#00FF00" />
             </LinearLayout>
 
@@ -79,7 +79,7 @@
                 android:layout_marginTop="8dp"
                 app:errorEnabled="false"
                 app:hintEnabled="false"
-                app:startIconDrawable="@drawable/ic_search">
+                app:startIconDrawable="@drawable/search1">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/se"
@@ -94,7 +94,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/tRv"
+                android:id="@+id/tq"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/edSearchL"
@@ -121,7 +121,7 @@
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:icon="@drawable/ic_add_circle"
+        app:icon="@drawable/circle1"
         app:iconSize="25dp"
         app:iconTint="@color/white" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

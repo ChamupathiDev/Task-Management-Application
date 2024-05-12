@@ -103,12 +103,12 @@ class PickLAd(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val task = getItem(position)
+        val p1 = getItem(position)
 
         if (isL.value!!){
-            (holder as ListTaskViewHolder).bind(task,ducBack)
+            (holder as ListTaskViewHolder).bind(p1,ducBack)
         }else{
-            (holder as GridTaskViewHolder).bind(task,ducBack)
+            (holder as GridTaskViewHolder).bind(p1,ducBack)
         }
 
     }

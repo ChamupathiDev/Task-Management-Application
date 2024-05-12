@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 
 class PickRepo(application: Application) {
 
-    private val taskDao = PickDB.getInstance(application).pickDao
+    private val pickDao = PickDB.getInstance(application).pickDao
 
 
     private val _tSFlow = MutableStateFlow<Resource<Flow<List<Pick>>>>(Resource.Loading())
@@ -41,15 +41,15 @@ class PickRepo(application: Application) {
         _sBLData.postValue(sort)
     }
 
-    fun getTaskList(isAsc : Boolean, sortByName:String) {
+    fun getPickList(isAsc : Boolean, sortByName:String) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 _tSFlow.emit(Resource.Loading())
                 delay(500)
                 val result = if (sortByName == "title"){
-                    taskDao.getTaskListSortByTaskTitle(isAsc)
+                    pickDao.getPickListSortByPick(isAsc)
                 }else{
-                    taskDao.getTaskListSortByTaskDate(isAsc)
+                    pickDao.getPickListSortByPickDate(isAsc)
                 }
                 _tSFlow.emit(Resource.Success("loading_dialog", result))
             } catch (e: Exception) {
@@ -59,11 +59,11 @@ class PickRepo(application: Application) {
     }
 
 
-    fun insertTask(pick: Pick) {
+    fun insertPick(pick: Pick) {
         try {
             _sLiData.postValue(Resource.Loading())
             CoroutineScope(Dispatchers.IO).launch {
-                val result = taskDao.insertTask(pick)
+                val result = pickDao.insertPick(pick)
                 handleResult(result.toInt(), "Inserted Pick Successfully", StatusResult.Added)
             }
         } catch (e: Exception) {
@@ -72,11 +72,11 @@ class PickRepo(application: Application) {
     }
 
 
-    fun deleteTask(pick: Pick) {
+    fun deletePick(pick: Pick) {
         try {
             _sLiData.postValue(Resource.Loading())
             CoroutineScope(Dispatchers.IO).launch {
-                val result = taskDao.deleteTask(pick)
+                val result = pickDao.deletePick(pick)
                 handleResult(result, "Deleted Pick Successfully", StatusResult.Deleted)
 
             }
@@ -85,11 +85,11 @@ class PickRepo(application: Application) {
         }
     }
 
-    fun deleteTaskUsingId(taskId: String) {
+    fun deletePickUsingId(taskId: String) {
         try {
             _sLiData.postValue(Resource.Loading())
             CoroutineScope(Dispatchers.IO).launch {
-                val result = taskDao.deleteTaskUsingId(taskId)
+                val result = pickDao.deletePickUsingId(taskId)
                 handleResult(result, "Deleted Pick Successfully", StatusResult.Deleted)
 
             }
@@ -99,11 +99,11 @@ class PickRepo(application: Application) {
     }
 
 
-    fun updateTask(pick: Pick) {
+    fun updatePick(pick: Pick) {
         try {
             _sLiData.postValue(Resource.Loading())
             CoroutineScope(Dispatchers.IO).launch {
-                val result = taskDao.updateTask(pick)
+                val result = pickDao.updatePick(pick)
                 handleResult(result, "Updated Pick Successfully", StatusResult.Updated)
 
             }
@@ -112,11 +112,11 @@ class PickRepo(application: Application) {
         }
     }
 
-    fun updateTaskPaticularField(taskId: String, title: String, description: String) {
+    fun updatePickPaticularField(taskId: String, title: String, description: String) {
         try {
             _sLiData.postValue(Resource.Loading())
             CoroutineScope(Dispatchers.IO).launch {
-                val result = taskDao.updateTaskPaticularField(taskId, title, description)
+                val result = pickDao.updatePickPaticularField(taskId, title, description)
                 handleResult(result, "Updated Pick Successfully", StatusResult.Updated)
 
             }
@@ -125,11 +125,11 @@ class PickRepo(application: Application) {
         }
     }
 
-    fun searchTaskList(query: String) {
+    fun searchPickList(query: String) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 _tSFlow.emit(Resource.Loading())
-                val result = taskDao.searchTaskList("%${query}%")
+                val result = pickDao.searchPickList("%${query}%")
                 _tSFlow.emit(Resource.Success("loading_dialog", result))
             } catch (e: Exception) {
                 _tSFlow.emit(Resource.Error(e.message.toString()))
