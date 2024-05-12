@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TaskMaster</string>
     <string name="welcome_to_task_master">Welcome to Task Master</string>
-    <string name="dialy_task_board">Dialy Task Board</string>
+    <string name="dialy_task_board">Daily Task Board</string>
     <string name="enter_search_title">Enter search title</string>
     <string name="add_task">Add Task</string>
     <string name="new_task">New Task</string>
