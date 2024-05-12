@@ -37,7 +37,7 @@
                 android:layout_below="@id/welT"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="4dp"
-                android:text="Tasks Status Board"
+                android:text="Dialy Task Status"
                 android:textColor="#FFFF00"
                 android:textSize="28sp"
                 android:textStyle="bold" />
