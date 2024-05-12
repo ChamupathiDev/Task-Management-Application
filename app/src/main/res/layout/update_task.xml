@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="Update Task"
+            android:text="@string/update_task"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -49,7 +49,7 @@
                 android:id="@+id/tTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter The Task Title">
+                android:hint="@string/enter_the_task_title1">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tT"
@@ -65,7 +65,7 @@
                 android:id="@+id/tDesv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter The Task Description">
+                android:hint="@string/enter_the_task_description1">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tDes"
@@ -87,7 +87,7 @@
                 android:layout_marginTop="4dp"
                 android:backgroundTint="@color/black"
                 style="@style/Widget.App.Button.Fill"
-                android:text="Update Task"
+                android:text="@string/update_task1"
                 android:textSize="20sp" />
         </LinearLayout>
     </RelativeLayout>

@@ -25,8 +25,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="16dp"
-                android:text="Welcome to Task Master"
-                android:textColor="#FFFF00"
+                android:text="@string/welcome_to_task_master"
+                android:textColor="@color/yellow"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -37,8 +37,8 @@
                 android:layout_below="@id/welT"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="4dp"
-                android:text="Dialy Task Status"
-                android:textColor="#FFFF00"
+                android:text="@string/dialy_task_board"
+                android:textColor="@color/yellow"
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
@@ -86,7 +86,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_background"
-                    android:hint="Enter search title"
+                    android:hint="@string/enter_search_title"
                     android:textColor="@color/black"
                     android:imeOptions="actionSearch"
                     android:inputType="text" />
@@ -117,7 +117,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:backgroundTint="@color/black"
-        android:text="Add Task"
+        android:text="@string/add_task"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
