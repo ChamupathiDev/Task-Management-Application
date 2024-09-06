@@ -16,7 +16,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class PickRepo(application: Application) {
+class  PickRepo(application: Application) {
 
     private val pickDao = PickDB.getInstance(application).pickDao
 
